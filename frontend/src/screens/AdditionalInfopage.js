@@ -14,9 +14,10 @@ function AdditionalInfoPage() {
     const [lastName, setLastName] = useState('');
     const [aadharcardNo, setAadharcardNo] = useState('');
     const [mobileNo, setMobileNo] = useState('');
-    const [houseNo, setHouseNo] = useState('');
+    const [socity, setSocity] = useState('');
     const [area, setArea] = useState('');
     const [city, setCity] = useState('');
+    const [state, setState] = useState('');
     const [errorMsg, setErrorMsg] = useState("");
     const [token2, setToken] = useState("")
 
@@ -36,11 +37,11 @@ function AdditionalInfoPage() {
                 {
                     first_name: firstName,
                     last_name: lastName,
-                    aadharcard_no: aadharcardNo,
                     mobile_no: mobileNo,
-                    house_no: houseNo,
+                    society_name: socity,
                     area: area,
-                    city: city
+                    city: city,
+                    state: state
                 },
                 {
                     headers: {
@@ -91,16 +92,6 @@ function AdditionalInfoPage() {
                             className="input-field w-full p-3 mb-4 border-0 rounded-md bg-gray-700 text-gray-300 focus:outline-none focus:ring-green-500 focus:border-green-500"
                         />
 
-                        <label htmlFor="aadharcardNo" className="block text-sm font-medium text-gray-300 mb-1">Aadhar Card No</label>
-                        <input
-                            id="aadharcardNo"
-                            type="text"
-                            value={aadharcardNo}
-                            onChange={(e) => setAadharcardNo(e.target.value)}
-                            placeholder="Enter Aadhar card number"
-                            className="input-field w-full p-3 mb-4 border-0 rounded-md bg-gray-700 text-gray-300 focus:outline-none focus:ring-green-500 focus:border-green-500"
-                        />
-
                         <label htmlFor="mobileNo" className="block text-sm font-medium text-gray-300 mb-1">Mobile No</label>
                         <input
                             id="mobileNo"
@@ -111,12 +102,12 @@ function AdditionalInfoPage() {
                             className="input-field w-full p-3 mb-4 border-0 rounded-md bg-gray-700 text-gray-300 focus:outline-none focus:ring-green-500 focus:border-green-500"
                         />
 
-                        <label htmlFor="houseNo" className="block text-sm font-medium text-gray-300 mb-1">House No</label>
+                        <label htmlFor="socity" className="block text-sm font-medium text-gray-300 mb-1">Socity Name</label>
                         <input
-                            id="houseNo"
+                            id="socity"
                             type="text"
-                            value={houseNo}
-                            onChange={(e) => setHouseNo(e.target.value)}
+                            value={socity}
+                            onChange={(e) => setSocity(e.target.value)}
                             placeholder="Enter house number"
                             className="input-field w-full p-3 mb-4 border-0 rounded-md bg-gray-700 text-gray-300 focus:outline-none focus:ring-green-500 focus:border-green-500"
                         />
@@ -138,6 +129,16 @@ function AdditionalInfoPage() {
                             value={city}
                             onChange={(e) => setCity(e.target.value)}
                             placeholder="Enter city"
+                            className="input-field w-full p-3 mb-4 border-0 rounded-md bg-gray-700 text-gray-300 focus:outline-none focus:ring-green-500 focus:border-green-500"
+                        />
+
+                        <label htmlFor="state" className="block text-sm font-medium text-gray-300 mb-1">State</label>
+                        <input
+                            id="state"
+                            type="text"
+                            value={state}
+                            onChange={(e) => setState(e.target.value)}
+                            placeholder="Enter state"
                             className="input-field w-full p-3 mb-4 border-0 rounded-md bg-gray-700 text-gray-300 focus:outline-none focus:ring-green-500 focus:border-green-500"
                         />
 

@@ -77,16 +77,6 @@ def additional_info_view(request):
     profile.first_name = request.data.get('first_name')
     profile.last_name = request.data.get('last_name')
 
-    # Validate Aadharcard number
-    aadharcard_no = request.data.get('aadharcard_no')
-    if aadharcard_no:
-        aadharcard_validator = RegexValidator(regex=r'^\d{12}$', message='Aadharcard number must be exactly 12 digits long')
-        try:
-            aadharcard_validator(aadharcard_no)
-        except ValidationError as e:
-            return Response({"message": e.message}, status=status.HTTP_400_BAD_REQUEST)
-        profile.aadharcard_no = aadharcard_no
-
     # Validate Mobile number
     mobile_no = request.data.get('mobile_no')
     if mobile_no:
@@ -97,9 +87,10 @@ def additional_info_view(request):
             return Response({"message": e.message}, status=status.HTTP_400_BAD_REQUEST)
         profile.mobile_no = mobile_no
 
-    profile.house_no = request.data.get('house_no')
+    profile.society_name = request.data.get('society_name')
     profile.area = request.data.get('area')
     profile.city = request.data.get('city')
+    profile.state = request.data.get('state')
     profile.save()
 
     return Response({
