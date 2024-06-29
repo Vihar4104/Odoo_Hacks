@@ -5,9 +5,9 @@ import { Icon } from 'react-icons-kit';
 import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import { eye } from 'react-icons-kit/feather/eye';
 import first from '../assets/images/first.jpg';
-import second from '../assets/images/second.jpg';
-import third from '../assets/images/third.jpg';
-import fourth from '../assets/images/fourth.jpg';
+import second from '../assets/images/Second.jpg';
+import third from '../assets/images/Third.jpg';
+import fourth from '../assets/images/Fourth.jpg';
 
 const images = [first, second, third, fourth];
 
@@ -67,14 +67,13 @@ function AddGarbedgeCollectorPage() {
         navigate("/admin/home")
     }
 
-    if (userRole == 'Administrator') {
+
         return (
             <div className="signup-container h-screen flex justify-center items-center bg-gray-900">
                 <div className="flex justify-between items-center w-full max-w-5xl gap-2.5">
                     <div className="glass-signup w-1/2 rounded-2xl backdrop-filter backdrop-blur-md shadow-md bg-gray-800 p-7">
                         <div className="form-container">
-                            <h1 className="signup-heading text-2xl font-bold text-white mb-5">Add Police Officer</h1>
-                            <h3 className="text-white">token: {localStorage.getItem('token')}</h3>
+                            <h1 className="signup-heading text-2xl font-bold text-white mb-5">Add Garbage Collector</h1>
                             <label htmlFor="username" className="block text-sm font-medium text-gray-300 mb-1">Username</label>
                             <input
                                 id="username"
@@ -123,7 +122,7 @@ function AddGarbedgeCollectorPage() {
                                 onClick={handleSignUp}
                                 className="signup-button w-full p-3 bg-green-600 text-white rounded-md cursor-pointer hover:bg-green-700"
                             >
-                                Add Police Officer
+                                Add Garbege Collector
                             </button>
                         </div>
                         <button
@@ -144,24 +143,8 @@ function AddGarbedgeCollectorPage() {
                 </div>
             </div>
         );
-    } else {
-        return (
-            <div className="signup-container h-screen flex justify-center items-center bg-gray-900">
-                <div className="glass-signup w-1/2 rounded-2xl backdrop-filter backdrop-blur-md shadow-md bg-gray-800 p-7">
-                    <div className="form-container">
-                        <h1 className="signup-heading text-2xl font-bold text-white mb-5">Access Denied</h1>
-                        <p className="text-red-500">You are not permitted to access this webpage.</p>
-                        <div className="login-link text-center mt-3 text-gray-300">
-                            Return to{" "}
-                            <span className="signup-link">
-                                <Link to="/home" className="text-green-500 hover:underline">Home</Link>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
     }
-}
+    
+
 
 export default AddGarbedgeCollectorPage;

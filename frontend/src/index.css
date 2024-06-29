@@ -11,7 +11,7 @@
 
 @layer components {
   .tab-view ul {
-    @apply flex border-b mb-6;
+    @apply flex border-b mb-6 ;
   }
 
   .tab-view li {
@@ -23,7 +23,7 @@
   }
 
   .tab-view li.active {
-    @apply border-blue-500;
+    @apply border-blue-500 overflow-x-hidden;
     animation: borderGlow 1.5s infinite;
   }
 
@@ -48,7 +48,7 @@
   }
 
   .task-list li {
-    @apply cursor-pointer p-6 border rounded-lg shadow-sm hover:bg-gray-100 transition-colors flex items-center text-lg;
+    @apply cursor-pointer p-6 border rounded-lg shadow-sm hover:bg-gray-100 transition-colors flex items-center text-lg overflow-x-hidden;
   }
 
   .task-details p {
