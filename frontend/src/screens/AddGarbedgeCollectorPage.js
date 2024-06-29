@@ -74,7 +74,6 @@ function AddGarbedgeCollectorPage() {
                     <div className="glass-signup w-1/2 rounded-2xl backdrop-filter backdrop-blur-md shadow-md bg-gray-800 p-7">
                         <div className="form-container">
                             <h1 className="signup-heading text-2xl font-bold text-white mb-5">Add Police Officer</h1>
-                            <h3 className="text-white">token: {localStorage.getItem('token')}</h3>
                             <label htmlFor="username" className="block text-sm font-medium text-gray-300 mb-1">Username</label>
                             <input
                                 id="username"
@@ -123,7 +122,7 @@ function AddGarbedgeCollectorPage() {
                                 onClick={handleSignUp}
                                 className="signup-button w-full p-3 bg-green-600 text-white rounded-md cursor-pointer hover:bg-green-700"
                             >
-                                Add Police Officer
+                                Add Garbege Collector
                             </button>
                         </div>
                         <button

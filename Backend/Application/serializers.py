@@ -1,5 +1,8 @@
+# serializers.py
+
 from django.contrib.auth.models import User
 from rest_framework import serializers
+from .models import Profile
 
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
@@ -19,3 +22,11 @@ class RegisterSerializer(serializers.ModelSerializer):
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()
     password = serializers.CharField()
+
+class ProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = ('id', 'user', 'first_name', 'last_name', 'mobile_no', 'society_name', 'area', 'city', 'state')
+
+    user = serializers.StringRelatedField()
+

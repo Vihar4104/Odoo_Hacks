@@ -1,14 +1,14 @@
 // src/pages/Home.js
 import React from 'react';
-import CalendarSchedule from '../components/CalendarSchedule';
 import ReportingForm from '../components/ReportingForm';
 
-const Home = () => {
+
+const ResponceForm = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <CalendarSchedule />
+      <ReportingForm />
     </div>
   );
 };
 
-export default Home;
+export default ResponceForm;

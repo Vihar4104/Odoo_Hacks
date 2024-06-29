@@ -6,7 +6,7 @@ from django.contrib.auth.models import User, Group
 from django.contrib.auth import authenticate, login, logout
 from rest_framework.permissions import AllowAny
 from rest_framework.authtoken.models import Token
-from .serializers import RegisterSerializer, LoginSerializer
+from .serializers import RegisterSerializer, LoginSerializer, ProfileSerializer
 from rest_framework import status
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
@@ -15,7 +15,6 @@ from django.contrib.auth.hashers import make_password
 from .models import Profile
 from django.core.validators import RegexValidator
 from django.core.exceptions import ValidationError
-
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     permission_classes = (AllowAny,)
@@ -167,3 +166,19 @@ def create_garbege_collector_user(request):
         return Response({'error': 'The police group does not exist.'}, status=status.HTTP_404_NOT_FOUND)
     except Exception as e:
         return Response({'error': f'Failed to create police user: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+@api_view(['GET'])
+def garbage_collectors(request):
+    try:
+        # Filter users by group name 'Garbage Collector'
+        users = User.objects.filter(groups__name='Garbage Collector')
+
+        # Fetch profiles for these users
+        profiles = Profile.objects.filter(user__in=users)
+
+        # Serialize profiles
+        serializer = ProfileSerializer(profiles, many=True)
+
+        return Response(serializer.data)
+    except Exception as e:
+        return Response({'error': str(e)}, status=500)
