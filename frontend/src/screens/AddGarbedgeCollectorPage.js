@@ -5,9 +5,9 @@ import { Icon } from 'react-icons-kit';
 import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import { eye } from 'react-icons-kit/feather/eye';
 import first from '../assets/images/first.jpg';
-import second from '../assets/images/Second.jpg';
-import third from '../assets/images/Third.jpg';
-import fourth from '../assets/images/Fourth.jpg';
+import second from '../assets/images/second.jpg';
+import third from '../assets/images/third.jpg';
+import fourth from '../assets/images/fourth.jpg';
 
 const images = [first, second, third, fourth];
 

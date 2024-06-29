@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import first from '../assets/images/first.jpg';
-import second from '../assets/images/Second.jpg';
-import third from '../assets/images/Third.jpg';
-import fourth from '../assets/images/Fourth.jpg';
+import second from '../assets/images/second.jpg';
+import third from '../assets/images/third.jpg';
+import fourth from '../assets/images/fourth.jpg';
 
 const images = [first, second, third, fourth];
 
