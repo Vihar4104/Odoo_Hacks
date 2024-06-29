@@ -7,13 +7,14 @@ import HomePage from './screens/HomePage';
 import DefaultPage from './screens/DefaultPage';
 import AdditionalInfoPage from './screens/AdditionalInfopage';
 import AddGarbedgeCollectorPage from './screens/AddGarbedgeCollectorPage';
+import Home from './screens/Home';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<DefaultPage />} />
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/additional-info" element={<AdditionalInfoPage />} />
