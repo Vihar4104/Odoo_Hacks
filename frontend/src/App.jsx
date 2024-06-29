@@ -7,8 +7,9 @@ import HomePage from './screens/HomePage';
 import DefaultPage from './screens/DefaultPage';
 import AdditionalInfoPage from './screens/AdditionalInfopage';
 import AddGarbedgeCollectorPage from './screens/AddGarbedgeCollectorPage';
-import Home from './screens/Home';
-
+import Home from './screens/Schedule';
+import TaskAssign from './screens/TaskAssign'
+import Schedule from './screens/Schedule';
 function App() {
   return (
     <div className="App">
@@ -21,6 +22,9 @@ function App() {
           <Route path="/admin/home" element={<AdminHome />} />
           <Route path="/admin/assign-garbege-collector-role" element={<AddGarbedgeCollectorPage />} />
           <Route path="/home" element={<HomePage />} />
+          <Route path="/admin/TA" element={<TaskAssign />} />
+          <Route path="/admin/schedule" element={<Schedule />} />
+     
         </Routes>
       </Router>
     </div>
