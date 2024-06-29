@@ -1,10 +1,18 @@
-
+import React from 'react';
+import ReportingForm from './components/ReportingForm';
 import './App.css';
 
-export default function App() {
+function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  )
+    <div className="App">
+      <header className="App-header">
+        <h1>Report Litter Hotspot</h1>
+      </header>
+      <main>
+        <ReportingForm />
+      </main>
+    </div>
+  );
 }
+
+export default App;
