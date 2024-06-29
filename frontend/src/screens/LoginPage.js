@@ -53,7 +53,7 @@ function LoginPage() {
         // Store user data in localStorage
         localStorage.setItem('user', JSON.stringify(user));
         localStorage.setItem('token', token);
-        console.log("user role is: ", user.groups.includes("Administrator"))
+        console.log("user role is: ", user.groups)
         console.log('Login successful:', response.data);
 
         // Redirect based on user role

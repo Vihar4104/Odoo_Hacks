@@ -17,7 +17,8 @@ const AdminHome = () => {
         if (storedUser.groups == 'Administrator' && storedToken) {
             setUser(storedUser);
             setToken(storedToken);
-            // setUserRole(storedUser.groups.includes('admin') ? 'admin' : 'other');
+            // setUserRole(storedUser.groups);
+            setUserRole(storedUser.groups.includes('Administrator') ? 'Administrator' : 'other');
             setUserRole('Administrator');
             console.log(`user role is: ${userRole}`)
             // Set the default Authorization header for Axios
@@ -40,8 +41,9 @@ const AdminHome = () => {
                     }
                 }
             );
-
+    
             console.log('Logout successful:', response.data);
+            // Remove localStorage items after successful logout
             localStorage.removeItem('user');
             localStorage.removeItem('token');
             setUser(null);
@@ -69,7 +71,7 @@ const AdminHome = () => {
         );
     }
 
-    if (userRole == 'Administrator') {
+    if (userRole === 'Administrator') {
         return (
             <div className="min-h-screen bg-black text-white">
                 <Navbar handleLogout={handleLogout} />

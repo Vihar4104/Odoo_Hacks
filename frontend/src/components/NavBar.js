@@ -109,7 +109,7 @@ const NavBar = () => {
                                 </div>
                             )}
                         </div>
-                        <Link to="/admin/assign-police-role" className="nav-item hover:text-green-500 transition duration-300">Add Police Section</Link>
+                        <Link to="/admin/assign-garbege-collector-role" className="nav-item hover:text-green-500 transition duration-300">Add Garbege Collector Section</Link>
                     </div>
                 </div>
                 <div className="relative">
@@ -154,7 +154,7 @@ const NavBar = () => {
                             <Link to="/utility-bills" className="block px-4 py-2 text-white hover:bg-gray-700 transition duration-300">Show Utility Bills</Link>
                         </div>
                     )}
-                    <Link to="/admin/assign-police-role" className="block px-4 py-2 text-white hover:bg-gray-700 transition duration-300">Add Police Section</Link>
+                    <Link to="/admin/assign-garbege-collector-rolee" className="block px-4 py-2 text-white hover:bg-gray-700 transition duration-300">Add Garbege Collector Section</Link>
                 </div>
             )}
         </nav>

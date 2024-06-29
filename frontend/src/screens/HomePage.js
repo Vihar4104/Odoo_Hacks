@@ -57,12 +57,10 @@ function HomePage() {
 
     const getGroupMessage = () => {
         if (user && user.groups) {
-            if (user.groups.includes('admin')) {
-                return 'Hello Admin';
-            } else if (user.groups.includes('police')) {
-                return 'Hello Policeman';
-            } else if (user.groups.includes('normal_user')) {
-                return 'Hello User';
+            if (user.groups.includes('Garbedge Collector')) {
+                return 'Hello Garbedge Collector';
+            } else if (user.groups.includes('Residents')) {
+                return 'Hello Residents';
             }
         }
         return 'Hello Guest';
