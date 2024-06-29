@@ -36,9 +36,9 @@ class RegisterView(generics.CreateAPIView):
             serializer.is_valid(raise_exception=True)
             user = serializer.save()
             token, created = Token.objects.get_or_create(user=user)
-
-            # Assign user to the Residents group
-            group = Group.objects.get(name='Recidents')
+            
+            # Assign user to the normal_user group
+            group = Group.objects.get(name='Residents')
             user.groups.add(group)
 
             # Create Profile instance
@@ -62,7 +62,7 @@ class RegisterView(generics.CreateAPIView):
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 @api_view(['POST'])
-# @permission_classes([IsAuthenticated])
+@permission_classes([AllowAny])
 def additional_info_view(request):
     token_key = request.headers.get('Authorization', '').split('Token ')[-1]
     
@@ -135,7 +135,6 @@ def login_view(request):
 
 @csrf_exempt
 @api_view(['POST'])
-# @permission_classes([IsAuthenticated])
 def logout_view(request):
     if request.method == 'POST':
         logout(request)
@@ -143,11 +142,8 @@ def logout_view(request):
     else:
         return JsonResponse({"error": "Method not allowed"}, status=405)
 
-
 @api_view(['POST'])
-@csrf_exempt
-# @permission_classes([IsAdminUser])
-def create_garbage_collector(request):
+def create_garbege_collector_user(request):
     username = request.data.get('username')
     email = request.data.get('email')
     password = request.data.get('password')
@@ -171,12 +167,12 @@ def create_garbage_collector(request):
         )
 
         # Assign the police role to the user
-        police_group = Group.objects.get(name='Garbage Collectors')
-        user.groups.add(police_group)
+        garbege_collector = Group.objects.get(name='Garbedge Collector')
+        user.groups.add(garbege_collector)
 
-        return Response({'message': f'User {username} created as a Garbage Collector successfully.'}, status=status.HTTP_201_CREATED)
+        return Response({'message': f'User {username} created as a police user successfully.'}, status=status.HTTP_201_CREATED)
 
     except Group.DoesNotExist:
-        return Response({'error': 'The Garbage Collectors group does not exist.'}, status=status.HTTP_404_NOT_FOUND)
+        return Response({'error': 'The police group does not exist.'}, status=status.HTTP_404_NOT_FOUND)
     except Exception as e:
-        return Response({'error': f'Failed to create Garbage Collector: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        return Response({'error': f'Failed to create police user: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

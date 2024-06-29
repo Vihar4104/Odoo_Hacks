@@ -5,7 +5,7 @@ class Command(BaseCommand):
     help = 'Create user groups'
 
     def handle(self, *args, **kwargs):
-        groups = ['Recidents', 'Garbage Collectors', 'Administrator']
+        groups = ['Residents', 'Garbedge Collector', 'Administrator']
 
         for group_name in groups:
             group, created = Group.objects.get_or_create(name=group_name)
